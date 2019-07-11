@@ -1,0 +1,113 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TypeScript HTML App</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="app.js"></script>
+    <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+</head>
+<body bgcolor="#A0ECE0">
+    <!-- You must include this JavaScript file -->
+    <!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+          please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+    <!-- You must include crowd-form so that your task submits answers to MTurk -->
+
+    <div>
+        <p>
+            Thank you for participating in our research.
+            please read the instructions carefully.
+        </p>
+    </div>
+
+    <crowd-instructions link-text="View instructions" link-type="button" onclick="document.getElementById('readinstruction').disabled = false;">
+        <short-summary>
+            <ul>
+                <li>You must have a working microphone and speakers.</li>
+                <li>Please talk directly to the microphone.</li>
+                <li>Play fair within the rules of the game. if you will <strong>falsely</strong> report you don't hear the other side you will not get paid.</li>
+                <li>Play to WIN.</li>
+            </ul>
+        </short-summary>
+
+        <detailed-instructions>
+
+            <p><strong>Cheat game (Bullshit) Rules:</strong></p>
+            <ul>
+                <li>You must have a working microphone and speakers.</li>
+                <li>Please talk directly to the microphone</li>
+                <li>The goal is to get rid of all the cards.</li>
+                <li>Each turn you can drop up to 4 cards.</li>
+                <li>Your claim must be 1 above or 1 below the last claim.</li>
+                <li>You will need to lie well to win</li>
+                <li>Play fair within the rules of the game. if you will <strong>falsely</strong> report you don't hear the other side you will not get paid.</li>
+
+
+            </ul>
+            <p><strong>The cards:</strong></p>
+            <p>There are 52 cards each card with a digit (J = 11 , Q = 12, K = 13 , A = 14/1)</p>
+            <p><strong>The beginning:</strong></p>
+            <ul>
+                <li>Each player is dealt 8 cards</li>
+                <li>You play by turn</li>
+                <li>First player is randomly chosen. &nbsp;</li>
+            </ul>
+            <p><strong>The goal:</strong></p>
+            <p><span style="color: #339966;"><strong>The goal is to get rid of the cards. first player to rid of all it's cards WIN!</strong></span></p>
+            <p><strong>Turns:</strong></p>
+            <p>Each turn the player can</p>
+            <ul>
+                <li>Take a card</li>
+                <li>Drop cards and make a claim</li>
+                <li>Call a cheat</li>
+            </ul>
+            <p><strong>Dropping cards:</strong></p>
+            <p>You may drop 1-4 card each turn. You can claim to drop cards 1 higher or 1 lower than the last claim.&nbsp;</p>
+            <p>example: last claim is Q. you may claim to drop Ks or Js.</p>
+            <p><strong><span style="color: #ff0000;">In order to prevent people from not using the microphone or stating illegal claims. Each claim must be verified by your opponent. &nbsp;</span></strong></p>
+            <p><strong><span style="color: #ff0000;">If you feel your opponent is misusing the claim verification, that is, your claims are within the rules but your opponents reported you, you may report him back and we will manually check who is correct. </span></strong></p>
+            <p>&nbsp;<img src="https://cdn1.imggmi.com/uploads/2019/7/8/317343db58fd017182cca438889d7b22-full.png" alt="" width="640" height="446" /></p>
+            <p><strong>Calling a cheat:</strong></p>
+            <p><strong>&nbsp;</strong>You may call a cheat on your opponent's claim, that is, stating that the cards put down are different than the opponent's claim. If you are correct your opponent will take all the card on the board. If you are wrong, you will take the cards.&nbsp;</p>
+            <p>&nbsp;</p>
+            <h2><strong>Game Board</strong></h2>
+            <p><img src="https://cdn1.imggmi.com/uploads/2019/7/8/fa34acc241f6c357b569f4c344380321-full.png" alt="" /></p>
+            <p>&nbsp;</p>
+            <p><strong>Once you have picked cards to drop and verbally stated your claim you must specify to the game what you have said.</strong>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p><img src="https://cdn1.imggmi.com/uploads/2019/7/8/b0671e008457293a0dd378193409436f-full.png" alt="" width="287" height="433" /></p>
+
+        </detailed-instructions>
+
+    </crowd-instructions>
+
+
+    <form action="https://elasticbeanstalk-us-east-2-386253841304.s3.us-east-2.amazonaws.com/CheatGameApp.exe">
+        <input type="checkbox" id="readinstruction" disabled onchange="document.getElementById('download').disabled = !this.checked || !document.getElementById('usedata').checked ;"> I have read the game instruction and I understand them. <br>
+        <input type="checkbox" id="usedata" onchange="document.getElementById('download').disabled = !this.checked || !document.getElementById('readinstruction').checked ;"> I approve that all game data will be saved and used in research<br>
+        <input type="submit" id="download" value="Download Game" disabled>
+    </form>
+
+
+    <crowd-form answer-format="flatten-objects">
+        <div>
+            <p>How was playing the game for you? Have you encountered any bugs?</p>
+            <crowd-text-area name="feedback" rows="4"></crowd-input>
+        </div>
+        <div>
+            <p>Please paste the code your received at the end of the game</p>
+            <crowd-input name="endgamecode" placeholder="example: AAABBBCCCDDD" required></crowd-input>
+        </div>
+    </crowd-form>
+
+
+
+
+
+
+
+
+</body>
+</html>

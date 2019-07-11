@@ -1,0 +1,7 @@
+C:\Users\neite\OneDrive\Documents\לימודים\MTurk\MTurk\bin\TypeScriptHTMLApp1.dll.config
+C:\Users\neite\OneDrive\Documents\לימודים\MTurk\MTurk\bin\TypeScriptHTMLApp1.dll
+C:\Users\neite\OneDrive\Documents\לימודים\MTurk\MTurk\bin\TypeScriptHTMLApp1.pdb
+C:\Users\neite\OneDrive\Documents\לימודים\MTurk\MTurk\obj\Debug\MTurk.csprojAssemblyReference.cache
+C:\Users\neite\OneDrive\Documents\לימודים\MTurk\MTurk\obj\Debug\MTurk.csproj.CoreCompileInputs.cache
+C:\Users\neite\OneDrive\Documents\לימודים\MTurk\MTurk\obj\Debug\TypeScriptHTMLApp1.dll
+C:\Users\neite\OneDrive\Documents\לימודים\MTurk\MTurk\obj\Debug\TypeScriptHTMLApp1.pdb
